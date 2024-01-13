@@ -1,17 +1,16 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "miprimermodulo",
+    'name': "Módulo1 SGE Vanesa",
 
     'summary': """
-        Short (1 phrase/line) summary of the module's purpose, used as
-        subtitle on modules listing or apps.openerp.com""",
+        El primer módulo de la clase de SGE""",
 
     'description': """
-        Long description of module's purpose
+        Este módulo ha sido creado con scaffolding y está sincronizado  en mi repositorio Github
     """,
 
-    'author': "My Company",
-    'website': "https://www.yourcompany.com",
+    'author': "Vanesa Espín",
+    'website': "https://www.ieshlanz.es",
 
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/16.0/odoo/addons/base/data/ir_module_category_data.xml
