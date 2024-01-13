@@ -3,9 +3,9 @@
 # from odoo import models, fields, api
 
 
-# class miprimermodulo(models.Model):
-#     _name = 'miprimermodulo.miprimermodulo'
-#     _description = 'miprimermodulo.miprimermodulo'
+# class misegundomodulo(models.Model):
+#     _name = 'misegundomodulo.misegundomodulo'
+#     _description = 'misegundomodulo.misegundomodulo'
 
 #     name = fields.Char()
 #     value = fields.Integer()
