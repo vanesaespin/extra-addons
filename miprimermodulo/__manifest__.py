@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "miprimermodulo",
+    'name': "Primer modulo Vanesa",
 
     'summary': """
-        El primer módulo de la clase de SGE""",
+        Primer modulo SGE""",
 
     'description': """
-        Este módulo ha sido creado con scaffolding y está sincronizado  en mi repositorio Github
+        Este modulo ha sido creado con scaffolding y esta sincronizado en Github
     """,
 
     'author': "Vanesa Espín",
