@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Módulo1 SGE Vanesa",
+    'name': "miprimermodulo",
 
     'summary': """
         El primer módulo de la clase de SGE""",
