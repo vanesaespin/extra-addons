@@ -1,11 +1,8 @@
 # -*- coding: utf-8 -*-
 {
     'name': "Primer modulo Vanesa",
-    'summary': """
-        Primer modulo SGE""",
-    'description': """
-        Este modulo ha sido creado con scaffolding y esta sincronizado en Github
-    """,
+    'summary': "Primer modulo SGE",
+    'description': "Este modulo ha sido creado con scaffolding y esta sincronizado en Github",
     'author': "Vanesa Espín",
     'website': "https://www.ieshlanz.es",
     'category': 'Tools',
