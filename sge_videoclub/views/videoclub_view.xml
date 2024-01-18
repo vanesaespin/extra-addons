@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="vistapelis" model="ir.ui.view"> <!--tipo de acción: vista--> 
+		<field name="name">Videoclub.Pelis.Arbol</field>
+		<field name="model">videoclub.pelis</field>
+		<field name="arch" type="xml">
+			<tree string="lista">
+				<field name="titulo"/>
+				<field name="director"/>
+				<field name="clasificacion"/>
+				<field name="presupuesto"/>
+				<field name="fechaestreno"/>
+			</tree>
+		</field>
+	</record>
+
+    <record id="vistaformulario" model="ir.ui.view"> <!--tipo de acción: vista-->
+        <field name="name">Videoclub.Pelis.Formulario</field>
+        <field name="model">videoclub.pelis</field>
+        <field name="arch" type="xml">
+			<form string="pelis">
+			  <header> <!-- Solo se pueden  poner botones en la vista FORM, no en TREE -->
+				<button type="object" name="calculatotal" string="TOTAL PRESUPUESTOS" class="btn-primary" />
+				<button type="object" name="corrigenegativos" string="CORRIGE NEGATIVOS" />
+			  </header>
+				<group string="DATOS DE PELIS">
+                    <field name="titulo"/>
+					<field name="director"/>
+					<field name="categoria_id"/>
+					<field name="clasificacion"/>
+					<field name="presupuesto"/>
+					<field name="presupuestodol"/>
+				    <field name="fechaestreno"/>
+ 				</group>
+            </form>
+        </field>
+    </record>
+
+<record id="abrirpelis" model="ir.actions.act_window"> <!--tipo de acción: abrir ventana--> 
+        <field name="name">Pelis</field>
+		<field name="type">ir.actions.act_window</field><!--tipo de acción--> 
+        <field name="res_model">videoclub.pelis</field>   <!--modelo asociado-->
+		<field name="view_mode">tree,form,kanban</field>  <!--tipos de vistas-->
+		<field name="help" type="html"> <!-- ayuda si no hay campos -->
+			<h1> VIDEOCLUB </h1>
+			<p> LISTA DE PELIS VACÍA </p>
+		</field> 
+    </record>
+
+<!-- Definición de menuitems -->
+    <menuitem id="pelis_menu_root" name="Videoclub" sequence="0" /> <!-- sequence establece posición (min=izquierda, max=derecha) -->
+	<menuitem id="gestion_pelis" name="Gestión Pelis" parent="pelis_menu_root" /> <!-- se le dice el padre -->
+    <menuitem id="videoclub_pelis" name="Pelis" parent="gestion_pelis" action="abrirpelis" />  <!-- se le dice el padre y la acción-->
+</odoo>
