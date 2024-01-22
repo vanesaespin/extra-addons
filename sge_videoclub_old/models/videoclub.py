@@ -2,10 +2,10 @@
 from odoo import models, fields, api, _
 from odoo.exceptions import ValidationError
 
-class pelis(models.Model):
+class videoclub_pelis(models.Model):
     #atributos 
     _name = 'videoclub.pelis' 
-    _description = 'Videoclub - pelis'
+    _description = 'Película'
     #campos
     titulo = fields.Char('Titulo', size=30, required=True, help='Nombre de la peli')
     director = fields.Char('Director', size=30, required=False, help='Director de la peli', default='')

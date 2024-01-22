@@ -10,9 +10,9 @@
     "category": "Tools",
     "depends": ["base"],
     "data": [
-        "security/ir.model.access.csv",
         "security/videoclub_security.xml",
-        "views/videoclub_view.xml",
+        "security/ir.model.access.csv",      
+        #"views/videoclub_view.xml",
     ],
     "application": True,
     "installable": True,
