@@ -1,28 +1,47 @@
 <odoo>
   <data>
     <!-- explicit list view definition -->
-<!--
-    <record model="ir.ui.view" id="videoclub_sge.list">
-      <field name="name">videoclub_sge list</field>
-      <field name="model">videoclub_sge.videoclub_sge</field>
-      <field name="arch" type="xml">
-        <tree>
-          <field name="name"/>
-          <field name="value"/>
-          <field name="value2"/>
-        </tree>
-      </field>
+    <record model="ir.ui.view" id="videoclub_sge.pelis_arbol">
+		  <field name="name">videoclub_sge.pelis_arbol</field>
+		  <field name="model">videoclub.pelis</field>
+		  <field name="arch" type="xml">
+			  <tree>
+				  <field name="titulo"/>
+				  <field name="director"/>
+				  <field name="clasificacion"/>
+				  <field name="presupuesto"/>
+				  <field name="fechaestreno"/>
+			  </tree>
+		  </field>
+	  </record>
+
+   <record model="ir.ui.view" id="videoclub_sge.pelis_formulario"> 
+        <field name="name">videoclub_sge.pelis_formulario</field>
+        <field name="model">videoclub.pelis</field>
+        <field name="arch" type="xml">
+          <form string="pelis">
+            <group string="DATOS DE PELIS">
+              <field name="titulo"/>
+              <field name="director"/>
+              <field name="clasificacion"/>
+              <field name="presupuesto"/>
+              <field name="fechaestreno"/>
+            </group>
+          </form>
+        </field>
     </record>
--->
 
     <!-- actions opening views on models -->
-<!--
-    <record model="ir.actions.act_window" id="videoclub_sge.action_window">
-      <field name="name">videoclub_sge window</field>
-      <field name="res_model">videoclub_sge.videoclub_sge</field>
-      <field name="view_mode">tree,form</field>
+    <record model="ir.actions.act_window" id="videoclub_sge.pelis_ventana" > 
+        <field name="name">Películas</field>
+        <field name="res_model">videoclub.pelis</field>   
+		    <field name="view_mode">tree,form,kanban</field>  
+		    <field name="help" type="html"> 
+			    <h1> VIDEOCLUB </h1>
+			    <p> LISTA DE PELIS VACÍA </p>
+		    </field> 
     </record>
--->
+
 
     <!-- server action to the one above -->
 <!--
@@ -41,14 +60,12 @@
 -->
 
     <!-- Top menu item -->
-<!--
-    <menuitem name="videoclub_sge" id="videoclub_sge.menu_root"/>
--->
+    <menuitem name="VIDEOCLUB" id="videoclub_sge.menu_root"/>
+
     <!-- menu categories -->
-<!--
-    <menuitem name="Menu 1" id="videoclub_sge.menu_1" parent="videoclub_sge.menu_root"/>
-    <menuitem name="Menu 2" id="videoclub_sge.menu_2" parent="videoclub_sge.menu_root"/>
--->
+    <menuitem name="Gestión Pelis" id="videoclub_sge.gestion_pelis" parent="videoclub_sge.menu_root" /> 
+    <menuitem name="Pelis" id="videoclub_sge.menu_pelis" parent="videoclub_sge.gestion_pelis" action="videoclub_sge.pelis_ventana" />  
+
     <!-- actions -->
 <!--
     <menuitem name="List" id="videoclub_sge.menu_1_list" parent="videoclub_sge.menu_1"

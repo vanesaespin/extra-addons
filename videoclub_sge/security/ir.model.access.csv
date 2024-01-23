@@ -1,2 +1,3 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_videoclub_sge_videoclub_sge,videoclub_sge.videoclub_sge,model_videoclub_sge_videoclub_sge,base.group_user,1,1,1,1
+access_videoclub_sge_jefe,Jefe de Pelis,videoclub_sge.model_videoclub_pelis,videoclub_jefe,1,1,1,1
+access_videoclub_sge_becario,Becario de Pelis,videoclub_sge.model_videoclub_pelis,videoclub_becario,1,1,0,0
