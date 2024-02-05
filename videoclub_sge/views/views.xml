@@ -24,10 +24,11 @@
               <field name="titulo"/>
               <field name="director"/>
               <field name="clasificacion"/>
-              <field name="presupuesto"/> €
+              <field name="presupuesto"/> 
               <field name="fechaestreno"/>
               <field name="subvencionado" readonly="1"/>
               <field name="invertido" readonly="1"/>
+              <field name="mas_de_millon_euros" readonly="1"/>
             </group>
           </form>
         </field>
