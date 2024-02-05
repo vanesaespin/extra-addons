@@ -26,6 +26,8 @@
               <field name="clasificacion"/>
               <field name="presupuesto"/>
               <field name="fechaestreno"/>
+              <field name="subvencionado" readonly="1"/>
+              <field name="invertido" readonly="1"/>
             </group>
           </form>
         </field>

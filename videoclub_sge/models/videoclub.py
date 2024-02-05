@@ -11,6 +11,18 @@ class videoclub_pelis(models.Model):
     clasificacion = fields.Selection([('TP','Todos los Públicos'),('men12','Menores de 12 años'),('may18','Mayores 18 años')], string='Clasificación', default='TP')
     presupuesto = fields.Integer()
     fechaestreno = fields.Date()
+    #Supongamos que se subvenciona el 30% de la película
+    subvencionado = fields.Integer(compute='_valor_subvencion') #no inmediato, solo al guardar
+    invertido = fields.Integer(compute='_valor_inversion') #queremos verlo de modo inmediato
+
+    def _valor_subvencion(self):
+        self.subvencionado=self.presupuesto*0.3
+        
+    @api.depends('presupuesto')
+    def _valor_inversion(self):
+        self.invertido=self.presupuesto*0.7
+
+
 
 # class videoclub_sge(models.Model):
 #     _name = 'videoclub_sge.videoclub_sge'
