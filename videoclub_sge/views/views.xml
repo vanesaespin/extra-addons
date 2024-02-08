@@ -11,6 +11,7 @@
 				  <field name="clasificacion"/>
 				  <field name="presupuesto"/>
 				  <field name="fechaestreno"/>
+           <field name="compania"/>
 			  </tree>
 		  </field>
 	  </record>
@@ -29,10 +30,43 @@
               <field name="subvencionado" readonly="1"/>
               <field name="invertido" readonly="1"/>
               <field name="mas_de_millon_euros" readonly="1"/>
+              <field name="compania"/>
             </group>
           </form>
         </field>
     </record>
+
+
+
+   <record model="ir.ui.view" id="videoclub_sge.companias_arbol">
+		  <field name="name">videoclub_sge.companias_arbol</field>
+		  <field name="model">res.partner</field>
+		  <field name="arch" type="xml">
+			  <tree>
+          <field name="name"/>
+          <field name="premiada"/>
+			  </tree>
+		  </field>
+	  </record>
+
+    <record model="ir.ui.view" id="videoclub_sge.companias_formulario"> 
+        <field name="name">videoclub_sge.companias_formulario</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"></field>
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+          <xpath expr="//sheet/notebook/page[@name='internal_notes']" position="after">
+            <page name="videoclub" string="Videoclub">
+              <group>
+                <group>
+                  <field name="is_cine" attrs="{'invisible':True}"/>
+                  <field name="premiada"/>
+                </group>
+              </group>
+            </page>
+          </xpath>
+        </field>
+    </record> 
 
     <!-- actions opening views on models -->
     <record model="ir.actions.act_window" id="videoclub_sge.pelis_ventana" > 
@@ -45,22 +79,27 @@
 		    </field> 
     </record>
 
-
-    <!-- server action to the one above -->
-<!--
-    <record model="ir.actions.server" id="videoclub_sge.action_server">
-      <field name="name">videoclub_sge server</field>
-      <field name="model_id" ref="model_videoclub_sge_videoclub_sge"/>
-      <field name="state">code</field>
-      <field name="code">
-        action = {
-          "type": "ir.actions.act_window",
-          "view_mode": "tree,form",
-          "res_model": model._name,
-        }
-      </field>
+    <record model="ir.actions.act_window" id="videoclub_sge.companias_ventana" > 
+        <field name="name">Compañías</field>
+        <field name="res_model">res.partner</field>   
+		    <field name="view_mode">tree,form</field>
+        <field name="domain">[('is_cine','=',True)]</field><!--lista de filtros-->   
+        <field name="context">{'default_is_cine':True}</field><!--debe ser JSON-->
     </record>
--->
+    <record model="ir.actions.act_window.view" id="videoclub_sge.companias_ventana_view_arbol" > 
+       <field name="sequence" eval="1"/>
+       <field name="view_mode">tree</field> 
+       <field name="view_id" ref="videoclub_sge.companias_arbol"/>
+       <field name="act_window_id" ref="videoclub_sge.companias_ventana"/> 
+    </record>
+     
+    <record model="ir.actions.act_window.view" id="videoclub_sge.companias_ventana_view_formulario" > 
+        <field name="sequence" eval="2"></field>
+        <field name="view_mode">form</field> 
+        <field name="view_id" ref="videoclub_sge.companias_formulario"></field>
+        <field name="act_window_id" ref="videoclub_sge.companias_ventana"></field>   
+    </record>
+
 
     <!-- Top menu item -->
     <menuitem name="VIDEOCLUB" id="videoclub_sge.menu_root"/>
@@ -69,12 +108,8 @@
     <menuitem name="Gestión Pelis" id="videoclub_sge.gestion_pelis" parent="videoclub_sge.menu_root" /> 
     <menuitem name="Pelis" id="videoclub_sge.menu_pelis" parent="videoclub_sge.gestion_pelis" action="videoclub_sge.pelis_ventana" />  
 
-    <!-- actions -->
-<!--
-    <menuitem name="List" id="videoclub_sge.menu_1_list" parent="videoclub_sge.menu_1"
-              action="videoclub_sge.action_window"/>
-    <menuitem name="Server to list" id="videoclub_sge" parent="videoclub_sge.menu_2"
-              action="videoclub_sge.action_server"/>
--->
+    <menuitem name="Gestión compañías" id="videoclub_sge.gestion_companias" parent="videoclub_sge.menu_root" /> 
+    <menuitem name="Compañías" id="videoclub_sge.menu_companias" parent="videoclub_sge.gestion_companias" action="videoclub_sge.companias_ventana" />  
+ 
   </data>
 </odoo>
