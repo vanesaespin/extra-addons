@@ -59,7 +59,6 @@
             <page name="videoclub" string="Videoclub">
               <group>
                 <group>
-                  <field name="is_cine" attrs="{'invisible':True}"/>
                   <field name="premiada"/>
                 </group>
               </group>
@@ -80,7 +79,7 @@
     </record>
 
     <record model="ir.actions.act_window" id="videoclub_sge.companias_ventana" > 
-        <field name="name">Compañías</field>
+        <field name="name">Compañías Cinematográficas</field>
         <field name="res_model">res.partner</field>   
 		    <field name="view_mode">tree,form</field>
         <field name="domain">[('is_cine','=',True)]</field><!--lista de filtros-->   
