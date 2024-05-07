@@ -52,6 +52,7 @@ class videoclub_pelis(models.Model):
     def _is_millonario(self):
         self.mas_de_millon_euros=(self.presupuesto > 1000000)
 
+#FALTAN POR METER LAS CATEGORÍAS
 
 # class videoclub_sge(models.Model):
 #     _name = 'videoclub_sge.videoclub_sge'
